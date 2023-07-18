@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <title>HYEIN</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav__data">
+          <a href="index.html" class="nav__logo">
+            <i class="ri-graduation-cap-line"></i> HYEIN
+          </a>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line nav__toggle-menu"></i>
+            <i class="ri-close-line nav__toggle-close"></i>
+          </div>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li>
+              <a href="index.html" class="nav__link">HOME</a>
+            </li>
+
+            <li class="dropdown__item">
+              <div class="nav__link dropdown__button">
+                STUDY <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </div>
+
+              <div class="dropdown__container">
+                <div class="dropdown__content">
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="ri-flashlight-line"></i>
+                    </div>
+
+                    <span class="dropdown__title">SUMMER</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link">WEEK1</a>
+                      </li>
+
+                      <li>
+                        <a href="week2.html" class="dropdown__link">WEEK2</a>
+                      </li>
+
+                      <li>
+                        <a href="week3.html" class="dropdown__link">WEEK3</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <a href="#" class="nav__link">ABOUT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+        <section class="home section" id="home"></section>
+  
+        <section class="week section" id="week">
+          <h1 class="section__title">WEEK3</h1>
+          <div class="week__container container grid">
+            <div class="week__content grid">
+              <div class="week__container">
+                <div class="week__data">
+                  <h3 class="week__subtitle">GO 언어</h3>
+                  <p class="week__description">
+                    Go는 전통적인 컴파일, 링크 모델을 따르는 범용 프로그래밍 언어이다.
+                    <br>Go는 일차적으로 시스템 프로그래밍을 위해 개발되었으며, C++, Java, Python의 장점들을 뽑아 만들어졌다. C++와 같이 Go는 컴파일러를 통해 컴파일되며, 정적 타입 (Statically Typed)의 언어이다. 
+                  </p>
+  
+                  <h3 class="week__subtitle">
+                    RUST 언어
+                  </h3>
+                  <p class="week__description">
+                    C++의 단점인 메모리 보안에 취약한 코드를 작성하도록 유도하는 점을 보완하여 비슷한 속도의 저수준 언어로 떠오르는 언어이다.
+                    <br>변수를 다루는 방식이 다른 언어와 달라, 메모리 프로텍션이 굉장한 것으로 알려져 있다.
+                  </p>
+  
+                  <h3 class="week__subtitle">gdb</h3>
+                  <p class="week__description">
+                    디버거로 gcc에서 컴파일을 진행하고 나오는 실행파일을 디버깅 할 수 있다.
+                    <br>gdb 프로그램명 : gdb 실행한다.
+                    <br>r(run) : 프로세스를 새로 실행한다.
+                    <br>b(break) : 중단점을 설정한다.
+                    <br>cl(clear) : 중단점을 지정해 지운다.
+                  </p>
+  
+                  <h3 class="week__subtitle">scanf의 문자열 매칭</h3>
+                  <p class="week__description">
+                    scanf 함수는 리턴이 void가 아닌 bool이고, 정상적인 입력이면 1, 비정상적인 입력이면 0을 리턴한다.
+                    <br>scanf는 문자열 매칭을 사용하기 때문에 "%d" 말고도, 공백과 정규 표현식을 넣을 수 있다.
+                  </p>
+  
+                  <h3 class="week__subtitle">C언어 헤더 파일</h3>
+                  <p class="week__description">
+                    C언어 기본 헤더인 stdio.h는 기본적으로 printf, scanf를 지원하고, FILE을 지원해서 파일 입출력 함수를 통해 값을 주고 받는다. 
+                    
+                  </p>
+  
+                  <h3 class="week__subtitle">fopen과 freopen</h3>
+                  <p class="week__description">
+                    FILE*file = fopen("파일명", "명령어 값"); 으로 "파일명" 파일을 "명령어 값"으로 file을 지정한다. 
+                    <br>이를 통해 log 파일을 출력하거나 html 파일을 입력 할 수도 있다.
+                  </p>
+  
+                  <h3 class="week__subtitle">/dev/tty와 /dev/console</h3>
+                  <p class="week__description">
+                    /dev/tty : 사용자와 시스템 사이를 중계하는 역할을 한다. tty를 통해 사용자는 시스템과 통신을 한다.
+                    사용자가 입력하는 키보드의 입력은 tty를 통해서 시스템에 전달되고 시스템에서 내보내는 출력 역시 tty을 통과해서 사용자에게 전달된다.
+                  </p>
+  
+                  <h3 class="week__subtitle">C++의 cout</h3>
+                  <p class="week__description">
+                    iostream은 STL(Standard Template Library,표준 템플릿 라이브러리)에서 제공하는 클래스이며 cout과 cin은 미리 선언한 전역 변수다. 
+                    <br>cout은 데이터를 콘솔 화면에 출력할 때 사용한다. C언어에서 printf 함수는 출력할 데이터의 종류에 따라 출력 포멧 문자열을 지정하여 표현했지만 cout은 &lt;&lt; 연산 뒤에 피 연산자를 표현하면 알아서 출력한다.
+                  </p>
+  
+                  <h3 class="week__subtitle">cin과 C의 printf</h3>
+                  <p class="week__description">
+                    cin은 printf에 비해서 속도가 느리지만 안전성, 확장성 등에서는 더 뛰어나다.
+                  </p>
+  
+                  <h3 class="week__subtitle">포인터(*)와 참조(&)의 차이</h3>
+                  <p class="week__description">
+                    포인터는 메모리의 주소를 가지고 있는 변수이다. 주소 값을 통한 메모리 접근을 한다.
+                    <br>참조는 자신이 참조하는 변수를 대신할 수 있는 또 하나의 이름이다.
+                    <br>포인터는 null 초기화를 할 수 있지만, 레퍼런스는 null 초기화를 할 수 없다. 
+                    <br>참조는 반드시 선언과 동시에 초기화 해야한다. 이러한 특성 때문에 포인터는 가리킬 대상을 변경할 수 있지만, 레퍼런스는 불가능하다.
+                  </p>
+  
+                  <h3 class="week__subtitle">함수 포인터와 람다(익명) 함수</h3>
+                  <p class="week__description">
+                    포인터는 정적타입을 가리키는 정적타입이다. 보통 많은 언어에서 정적 타입을 원시 데이터 타입, 포인터 타입을 참조 타입으로 분류해서 부른다. 
+                    <br>
+                  </p>
+  
+                  <h3 class="week__subtitle">콜백 함수와 콜백 지옥</h3>
+                  <p class="week__description">
+                    콜백 함수(Callback function)란 다른 함수를 매개변수로 넘겨준 함수를 말한다.
+                    <br>콜백 지옥(callback hell)이란 콜백 함수를 익명 함수로 전달하는 과정에서 또 다시 콜백 안에 함수 호출이 반복되어 코드의 들여쓰기 순준이 감당하기 힘들 정도로 깊어지는 현상을 말한다.
+                  </p>
+  
+                  <h3 class="week__subtitle">gcc의 컴파일 과정</h3>
+                  <p class="week__description">
+                    main.c 파일을 전처리기를 통해 main.j 파일로 변환한다. 
+                    <br>main.j 파일을 컴파일러를 통해 main.s 파일로 변환한다. 
+                    <br>main.s 파일을 어셈블러를 통해 main.o 파일로 변환한다. 
+                    <br>main.o 파일을 링커를 통해 main(out)파일로 변환한다.
+                  </p>
+  
+                  <h3 class="week__subtitle">nasm과 AT&T</h3>
+                  <p class="week__description">
+                    어셈블리 언어는 nasm 같은 어셈블러 라고하는 유틸리티 프로그램에 의해 실행 가능한 기계어 코드로 변환된다.
+                    <br>어셈블리어의 문법인 AT&T는 opcode(명령어)와 operand(인자값)으로 나뉜다. 
+                    <br>AT&T는 operand 1이 source, operand 2가 destination이다. 
+    
+                  </p>
+  
+                  <h3 class="week__subtitle">C인라인 어셈블리</h3>
+                  <p class="week__description">
+                    __asm__
+                    <br>(
+                   <br> "어셈블리 구문;"
+                   <br> "어셈블리 구문2;"
+                   <br> "어셈블리 구문3"...
+                    <br> : "출력변수 명시"(변수), "출력 명시2"(변수2)...
+                    <br> : "입력변수 명시"(변수), "입력 명시2"(변수2)...
+                   <br>  : "사용 레지스터 명시"
+                    <br>)
+                  </p>
+  
+                  <h3 class="week__subtitle">파일 리버싱, C--</h3>
+                  <p class="week__description">
+                    실행파일 또는 바이너리 코드에서 어셈블리나 c코드를 보는 방법
+                    <br>실행파일에서 *.o파일로 리버싱하는 경우는 mv *.out*.o로 변환 가능하다. 
+                    <br>바이너리 코드에서 *.s파일로 리버싱하는 경우 objdump -d *.o>*.s로 변환 가능하다.
+                  </p>
+  
+                  <h3 class="week__subtitle">서버-클라이언트 구조 socket 함수</h3>
+                  <p class="week__description">
+                    int socket(int domain, int type, int protocal); 
+                    <br>소켓을 생성하는 함수이고 변환값 -1은 소켓 생성 실패, 0 이상은 소켓 디스크립터 이다. 
+                    <br>domain은 통신 프로토콜을 정하는 값이다. 
+                    <br>type은 사용할 소켓을 정하는 값이다.
+                    <br>protocol은 소켓의 프로토콜을 정하는 값이다.
+                  </p>
+                  
+  
+                  <h3 class="week__subtitle">서버-클라이언트 구조 write 함수</h3>
+                  <p class="week__description">
+                    ssize t write(int sockfd, void*buf sizeof(buf));
+                    <br>버퍼 내용을 소켓(원격 파일)에 작성하고 변환값 1-은 작성 실패, 0 이상은 byte 단위로 작성 한 데이터의 크기이다. 
+                    <br>sockfd는 작성 할 소켓(원격 파일)디스크립터를 의미한다. 
+                    <br>buf는 작성 할 데이터가 들어있는 버퍼이다. 
+                    <br>sizeof(buf)는 작성 할 데이터의 크기를 의미한다.
+                  </p>
+
+                  <h3 class="week__subtitle">서버-클라이언트 구조 read 함수</h3>
+                  <p class="week__description">
+                    ssize t read(int sockfd, void*buf sizeof(buf));
+                    <br>소켓(원격 파일)을 읽어 버퍼에 저장하고 변환값 1-은 인식 실패, 0 이상은 byte 단위로 읽은 데이터의 크기이다. 
+                    <br>sockfd는 작성 할 소켓(원격 파일)디스크립터를 의미한다. 
+                    <br>buf는 읽은 데이터를 저장하는 버퍼이다. 
+                    <br>sizeof(buf)는 읽은 데이터의 크기를 의미한다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
