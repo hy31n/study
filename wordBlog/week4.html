@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <title>HYEIN</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav__data">
+          <a href="index.html" class="nav__logo">
+            <i class="ri-graduation-cap-line"></i> HYEIN
+          </a>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line nav__toggle-menu"></i>
+            <i class="ri-close-line nav__toggle-close"></i>
+          </div>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li>
+              <a href="index.html" class="nav__link">HOME</a>
+            </li>
+
+            <li class="dropdown__item">
+              <div class="nav__link dropdown__button">
+                STUDY <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </div>
+
+              <div class="dropdown__container">
+                <div class="dropdown__content">
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="ri-flashlight-line"></i>
+                    </div>
+
+                    <span class="dropdown__title">SUMMER</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link">WEEK1</a>
+                      </li>
+
+                      <li>
+                        <a href="week2.html" class="dropdown__link">WEEK2</a>
+                      </li>
+
+                      <li>
+                        <a href="week3.html" class="dropdown__link">WEEK3</a>
+                      </li>
+                      
+                      <li>
+                        <a href="week4.html" class="dropdown__link">WEEK4</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <a href="#" class="nav__link">ABOUT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+        <section class="home section" id="home"></section>
+  
+        <section class="week section" id="week">
+          <h1 class="section__title">WEEK3</h1>
+          <div class="week__container container grid">
+            <div class="week__content grid">
+              <div class="week__container">
+                <div class="week__data">
+                  <h3 class="week__subtitle">SSL/TLS</h3>
+                  <p class="week__description">
+                    SSL과 TLS 모두 서버, 애플리케이션, 사용자 및 시스템 간의 데이터를 암호화하는 통신 프로토콜이다. 네트워크를 통해 연결된 두 당사자를 인증하므로 데이터를 안전하게 교환할 수 있다.
+                    <br>
+                    TLS는 암호화 및 인증을 지원하는 보안 통신 프로토콜이다. SSL이 더 이상 사용되지 않기 전에는 SSL이 이 역할을 했습니다. TLS와 SSL 모두 핸드셰이크 프로세스를 용이하게 하고 브라우저와 웹 서버 간에 암호화된 통신을 설정하는 디지털 인증서를 사용한다.
+                  </p>
+  
+                  <h3 class="week__subtitle">
+                    리버스 프록시
+                  </h3>
+                  <p class="week__description">
+                    리버스 프록시로 웹 서버를 설정할 경우 사용자가 example.com 웹 서비스에 데이타를 요청하면 Reverse Proxy 는 이 요청을 받아서 내부 서버(보통 WAS 입니다)에서 데이타를 받은후에 이 데이타를 사용자에게 다시 전달한다.
+                    <br>
+                    대부분의 WAS는 Web Server 기능을 제공하므로 리버스 프록시 없이 내부 WAS가 직접 서비스를 제공해도 되지만 이렇게 구성하는 이유가 있다.
+                    웹 서버가 해킹당해도 2차 방화벽을 다시 뚫어야 하므로 보안 강화에 좋다.
+                  </p>
+  
+                  <h3 class="week__subtitle">블록태그와 인라인태그</h3>
+                  <p class="week__description">
+                    블록 태그 : 내용물의 크기와 상관없이 너비는 항상 100%를 차지한다
+                    <br>블록 태그 종류
+                    <br>div : 블록 컨테이너를 나타내기 위한 의미없는 태그
+                    <br>p : 문단
+                    <br>form : 사용자가 입력한 데이터를 서버로 전송하기 위해 사용한다.
+                    <br>
+                    <br>인라인 태그 : 좌우 공간을 필요한 만큼만 차지한다.
+                    <br>인라인 태그 종류
+                    <br>span : 인라인 요소들을 그룹화하거나 영역을 나눌때 사용
+                    <br>a : 링크를 통해 다른페이지, 문서 등을 연결해주는 태그
+                    <br>button : 클릭할 수 있는 버튼을 생성하는 태그
+                    <br>input : 사용자로부터 입력을 받을 때 사용하며 form태그 내부에 많이 쓴다.
+                  </p>
+  
+                  <h3 class="week__subtitle">flex</h3>
+                  <p class="week__description">
+                    레이아웃 배치 전용 기능으로 컨테이너에 적용하는 속성, 아이템에 적용하는 속성이 있다.
+                    <br> display: flex; : 아이템들이 가로 방향으로 배치되고, 자신이 가진 내용물의 width 만틈만 차지하게 된다. height는 컨테이너의 높이만큼 늘어난다.
+                  </p>
+  
+                  <h3 class="week__subtitle">grid</h3>
+                  <p class="week__description">
+                    grid는 두 방향(가로-세로) 레이아웃 시스템이다.
+                    <br>그리드 컨테이너 (Grid Container)
+                    <br>display: grid를 적용하는, Grid의 전체 영역입니다. Grid 컨테이너 안의 요소들이 Grid 규칙의 영향을 받아 정렬된다고 생각하면 된다.
+                    <br>그리드 아이템 (Grid Item)
+                    <br>Grid 컨테이너의 자식 요소들입니다. 바로 이 아이템들이 Grid 규칙에 의해 배치된다.
+                  </p>
+  
+                  <h3 class="week__subtitle">반응형 웹</h3>
+                  <p class="week__description">
+                    웹 디자인 기법 중 하나. 디바이스의 디스플레이의 종류에 반응하여 그에 맞도록 적절하게 UI 요소들이 유기적으로 배치되도록 설계된 웹을 말한다.
+                  </p>
+
+                  <h3 class="week__subtitle">CSS 전처리기</h3>
+                  <p class="week__description">
+                    전처리기의 자신만의 특별한 syntax를 가지고 CSS를 생성하도록 하는 프로그램
+                    <br>
+                    <br>→ CSS의 문제점들을 Programmatically 한 방식. 즉 변수, 함수, 상속 등 일반적인 프로그래밍 개념을 사용가능( 전처리기는 태생적으로 기존 css가 가질 수 있는 불리한 점 해결 위해 탄생)
+                  </p>
+
+                  <h3 class="week__subtitle">CSS 후처리기</h3>
+                  <p class="week__description">
+                    후처리기 : 화면에 보여주고 나서, CSS 변경
+                    <br>기본 CSS파일 작성 => 렌더링 => 외부 프로그램 사용해서 스타일 변경
+                  </p>
+
+                  <h3 class="week__subtitle">익명함수</h3>
+                  <p class="week__description">
+                    자바스크립트 익명 함수는 함수명 대신 변수명에 함수 코드를 저장하는 구현 방식이다. 익명 함수의 소스 코드는 변수값이므로 끝에 세미콜론 ; 을 대입한다. 익명 함수는 호출 시 변수명을 함수명처럼 사용하면 된다.
+                    <br>구조
+                    <br>var 변수명 = function( 매개변수 )
+                    <br>{
+                    <br>  실행문;
+                    <br>};
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
