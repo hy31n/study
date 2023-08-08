@@ -1,3 +1,9 @@
+#!/usr/bin/node
+const express = require('express');
+const mysql = require('mysql');
+const dbconfig = require('./config/dbinfo.js');
+const connection = mysql.createConnection(dbconfig);
+
 const app = express();
 const port = 3000;
 
@@ -18,20 +24,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/css/:name', (req, res) => {
-  const filePath = path.join(__dirname, 'main/styles/', req.params.name);
+  const filePath = path.join(__dirname, '/main/css/', req.params.name);
   res.sendFile(filePath);
 });
 
-app.get('/scripts/:name', (req, res) => {
-  const filePath = path.join(
-    __dirname,
-    'Gardenmozip/scripts/',
-    req.params.name
-  );
+app.get('/js/:name', (req, res) => {
+  const filePath = path.join(__dirname, '/main/js/', req.params.name);
   res.set('Content-Type', 'application/javascript');
   res.sendFile(filePath);
 });
-
 app.get('/img/:name', (req, res) => {
   const filePath = path.join(__dirname, 'main/img/', req.params.name);
   res.sendFile(filePath);
