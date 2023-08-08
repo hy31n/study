@@ -54,7 +54,7 @@ app.listen(port, () => {
 
 app.use(
   cors({
-    origin: `http://52.79.106.170:3000`,
+    origin: `https://hyein.site/`,
     credentials: true,
   })
 );
