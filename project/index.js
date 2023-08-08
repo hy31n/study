@@ -23,18 +23,28 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/main/index.html');
 });
 
-app.get('/css/:name', (req, res) => {
-  const filePath = path.join(__dirname, '/main/css/', req.params.name);
-  res.sendFile(filePath);
+app.get('/mainCss', (req, res) => {
+  res.sendFile(__dirname + '/main/css/styles.css');
 });
 
-app.get('/js/:name', (req, res) => {
-  const filePath = path.join(__dirname, '/main/js/', req.params.name);
-  res.set('Content-Type', 'application/javascript');
-  res.sendFile(filePath);
+app.get('/mainJs', (req, res) => {
+  res.sendFile(__dirname + '/main/js/main.js');
 });
+
+app.get('/swiperCss', (req, res) => {
+  res.sendFile(__dirname + '/main/css/swiper-bundle.min.css');
+});
+
+app.get('/swiperJs', (req, res) => {
+  res.sendFile(__dirname + '/main/js/swiper-bundle.min.js');
+});
+
+app.get('/scrollJs', (req, res) => {
+  res.sendFile(__dirname + '/main/js/scrollreveal.min.js');
+});
+
 app.get('/img/:name', (req, res) => {
-  const filePath = path.join(__dirname, 'main/img/', req.params.name);
+  const filePath = path.join(__dirname, '/main/img/', req.params.name);
   res.sendFile(filePath);
 });
 
@@ -44,7 +54,7 @@ app.listen(port, () => {
 
 app.use(
   cors({
-    origin: `https://hyein.site/`,
+    origin: `http://52.79.106.170:3000`,
     credentials: true,
   })
 );
