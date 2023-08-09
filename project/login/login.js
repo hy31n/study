@@ -1,3 +1,25 @@
+// login
+
+const state = document.querySelector('.nav__button');
+
+if (document.cookie.indexOf('user=') === -1) {
+  const loginBtn = document.createElement('button');
+  loginBtn.textContent = '로그인';
+  loginBtn.addEventListener('click', (e) => {
+    location.href = '/login';
+  });
+  state.append(loginBtn);
+} else {
+  const logoutBtn = document.createElement('button');
+  logoutBtn.textContent = '로그아웃';
+  logoutBtn.addEventListener('click', (e) => {
+    location.href = '/logout';
+  });
+  state.append(logoutBtn);
+}
+
+// header
+
 function scrollHeader() {
   const header = document.getElementById('header');
 
@@ -5,6 +27,19 @@ function scrollHeader() {
   else header.classList.remove('scroll-header');
 }
 window.addEventListener('scroll', scrollHeader);
+
+let swiperPopular = new Swiper('.popular__container', {
+  spaceBetween: 32,
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: 'auto',
+  loop: true,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
 
 const sections = document.querySelectorAll('section[id]');
 
