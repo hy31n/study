@@ -1,4 +1,3 @@
-/*=============== GOOGLE FONTS ===============*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 :root {
@@ -606,7 +605,6 @@ button {
   }
 }
 
-/* For 2K & 4K resolutions */
 @media screen and (min-width: 2048px) {
   body {
     zoom: 1.5;
