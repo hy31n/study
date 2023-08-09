@@ -1,12 +1,9 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-/*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
 
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(228, 66%, 53%);
   --first-color-alt: hsl(228, 66%, 47%);
   --first-color-light: hsl(228, 62%, 59%);
@@ -19,8 +16,6 @@
   --body-color: #fff;
   --container-color: #fff;
 
-  /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: 'Poppins', sans-serif;
   --biggest-font-size: 2.25rem;
   --h1-font-size: 1.5rem;
@@ -30,16 +25,13 @@
   --small-font-size: 0.813rem;
   --smaller-font-size: 0.75rem;
 
-  /*========== Font weight ==========*/
   --font-medium: 500;
   --font-semi-bold: 600;
 
-  /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
 }
 
-/* Responsive typography */
 @media screen and (min-width: 1024px) {
   :root {
     --biggest-font-size: 4rem;
@@ -52,7 +44,6 @@
   }
 }
 
-/*=============== BASE ===============*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -68,7 +59,7 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
-  transition: 0.3s; /* For animation dark mode */
+  transition: 0.3s;
 }
 
 h1,
@@ -98,7 +89,6 @@ button {
   border: none;
 }
 
-/*=============== THEME ===============*/
 .change-theme {
   font-size: 1.25rem;
   color: #fff;
@@ -110,9 +100,6 @@ button {
   color: var(--first-color);
 }
 
-/*========== Variables Dark theme ==========*/
-
-/*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1024px;
   margin-left: 1.5rem;
@@ -143,7 +130,7 @@ button {
 }
 
 .main {
-  overflow: hidden; /* For the animations ScrollReveal */
+  overflow: hidden;
 }
 
 .change-theme {
@@ -157,7 +144,6 @@ button {
   color: var(--first-color);
 }
 
-/*=============== HEADER & NAV ===============*/
 .header {
   position: fixed;
   top: 0;
@@ -165,7 +151,7 @@ button {
   width: 100%;
   background-color: transparent;
   z-index: var(--z-fixed);
-  transition: 0.4s; /* For animation dark mode */
+  transition: 0.4s;
 }
 
 .nav {
@@ -222,7 +208,6 @@ button {
   }
 }
 
-/* Change background header */
 .scroll-header {
   background-color: var(--body-color);
   box-shadow: 0 1px 4px hsla(228, 4%, 15%, 0.1);
@@ -236,9 +221,6 @@ button {
   color: var(--title-color);
 }
 
-/* Active link */
-
-/*=============== BUTTON ===============*/
 .button {
   display: inline-block;
   background: linear-gradient(101deg, hsl(228, 66%, 53%), hsl(228, 66%, 47%));
@@ -322,7 +304,6 @@ button {
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.15);
 }
 
-/*Input focus move up label*/
 .form__input:focus + .form__label {
   top: -0.5rem;
   left: 0.8rem;
@@ -332,7 +313,6 @@ button {
   z-index: 10;
 }
 
-/*Input focus sticky top label*/
 .form__input:not(:placeholder-shown).form__input:not(:focus) + .form__label {
   top: -0.5rem;
   left: 0.8rem;
@@ -341,7 +321,6 @@ button {
   z-index: 10;
 }
 
-/*Input focus*/
 .form__input:focus {
   border: 1.5px solid var(--first-color);
 }
@@ -360,8 +339,6 @@ button {
   justify-content: space-between;
   padding-bottom: 2rem;
 }
-
-/*=============== SUBSCRIBE ===============*/
 
 /*=============== FOOTER ===============*/
 .footer__container {
@@ -493,13 +470,10 @@ button {
   color: var(--first-color);
 }
 
-/* Show Scroll Up*/
 .show-scroll {
   bottom: 8rem;
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
 @media screen and (max-width: 350px) {
   .container {
     margin-left: 1rem;
@@ -521,7 +495,6 @@ button {
   }
 }
 
-/* For medium devices */
 @media screen and (min-width: 576px) {
   .l-form {
     display: flex;
@@ -552,7 +525,6 @@ button {
   }
 }
 
-/* For large devices */
 @media screen and (min-width: 1023px) {
   .section {
     padding: 7.5rem 0 1rem;
