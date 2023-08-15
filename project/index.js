@@ -11,7 +11,7 @@ const path = require('path');
 const cors = require('cors');
 
 const mysql = require('mysql');
-const dbconfig = require('../config/dbinfo.js');
+const dbconfig = require('./config/dbinfo.js');
 const { error } = require('console');
 const connection = mysql.createConnection(dbconfig);
 
@@ -26,4 +26,4 @@ app.use(
   })
 );
 
-app.use('/', maincontroll);
+app.use('/', maincontroller);
