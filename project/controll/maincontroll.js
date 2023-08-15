@@ -14,15 +14,16 @@ router.get('/header', (req, res) => {
 router.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../html/login.html'));
 });
-router.get('/membership', (req, res) => {
-  res.sendFile(path.join(__dirname, '../html/signup.html'));
+
+router.get('/signup', (req, res) => {
+  res.sendFile(path.join(__dirname, '../html/login.html'));
 });
 
-router.get('/style/:name', (req, res) => {
-  res.sendFile(path.join(__dirname, '../style/', req.params.name));
+router.get('/css/:name', (req, res) => {
+  res.sendFile(path.join(__dirname, '../css/', req.params.name));
 });
-router.get('/image/:name', (req, res) => {
-  res.sendFile(path.join(__dirname, '../image/', req.params.name));
+router.get('/img/:name', (req, res) => {
+  res.sendFile(path.join(__dirname, '../img/', req.params.name));
 });
 router.get('/js/:name', (req, res) => {
   res.sendFile(path.join(__dirname, '../js/', req.params.name));

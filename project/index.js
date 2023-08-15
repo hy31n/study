@@ -17,7 +17,6 @@ const connection = mysql.createConnection(dbconfig);
 
 var maincontroller = require('./controll/maincontroll.js');
 
-app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'html'));
 
 app.use(
