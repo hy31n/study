@@ -15,9 +15,7 @@ const dbconfig = require('./config/dbinfo.js');
 const { error } = require('console');
 const connection = mysql.createConnection(dbconfig);
 
-var maincontroller = require('./controll/maincontroll.js');
-
-app.set('views', path.join(__dirname, 'html'));
+var mainRoute = require('./routes/mainRoute.js');
 
 app.use(
   cors({
@@ -26,7 +24,7 @@ app.use(
   })
 );
 
-app.use('/', maincontroller);
+app.use('/', mainRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
