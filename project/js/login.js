@@ -4,5 +4,5 @@ xhttp.onreadystatechange = function () {
     document.getElementById('header_container').innerHTML = this.responseText;
   }
 };
-xhttp.open('GET', '/header.html', true);
+xhttp.open('GET', '/header', true);
 xhttp.send();
