@@ -26,4 +26,4 @@ app.use(
   })
 );
 
-app.use('/', maincontroller);
+app.use('/', maincontroll);
