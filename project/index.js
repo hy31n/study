@@ -63,9 +63,7 @@ app.post('/login', (req, res) => {
   connection.query(getUserQuery, [id, pw], (err, results) => {
     if (err) {
       console.log(err);
-      return res
-        .status(500)
-        .json({ message: '로그인 중 오류가 발생했습니다.' });
+      res.redirect('/login');
     }
 
     if (results.length > 0) {
@@ -87,6 +85,14 @@ app.get('/logout', (req, res) => {
       res.clearCookie('user');
       res.redirect('/');
     }
+  });
+});
+
+// 게시판
+app.get('/board/api/:bid', (req, res) => {
+  res.json({
+    title: req.params.bid,
+    contents: 'this is CSR page' + req.params.bid,
   });
 });
 

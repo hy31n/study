@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="/css/board.css" />
+    <title>IN.TRIP</title>
+  </head>
+  <body>
+    <div id="header_container"></div>
+
+    <div class="title"></div>
+    <div class="contents"></div>
+
+    <script>
+      const bid = document.location.pathname.split('/')[3];
+      fetch(`/board/api/${bid}`)
+        .then((res) => res.json())
+        .then((myJson) => {
+          const title = document.querySelector('.title');
+          const contents = document.querySelector('.contents');
+          title.textContent = myJson.title;
+          contents.textContent = myJson.contents;
+        });
+    </script>
+  </body>
+</html>
