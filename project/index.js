@@ -18,6 +18,9 @@ const connection = mysql.createConnection(dbconfig);
 
 var mainRoute = require('./routes/mainRoute.js');
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'html'));
+
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -88,11 +91,47 @@ app.get('/logout', (req, res) => {
   });
 });
 
-// 게시판
-app.get('/board/api/:bid', (req, res) => {
-  res.json({
-    title: req.params.bid,
-    contents: 'this is CSR page' + req.params.bid,
+// 게시판 목록 불러오기
+app.get('/board', (req, res) => {
+  connection.query('SELECT * from board', (err, rows) => {
+    if (err) throw err;
+    console.log(rows);
+    res.send(rows);
+  });
+});
+
+//게시판 글 보기
+app.get('/view/:id', (req, res, next) => {
+  connection.query('SELECT * from board', (err, rows) => {
+    if (err) throw err;
+    const article = rows.find((art) => art.idx === parseInt(req.params.id));
+    if (!article) {
+      return res.status(404).send('ID was not found.');
+    }
+    res.send(article);
+  });
+});
+
+// 게시판 글 작성
+app.post('/write', (req, res) => {
+  const { title, author, content } = req.body;
+
+  // 로그인 상태 확인
+  if (!req.session.user) {
+    return res.status(403).json({ message: '로그인이 필요합니다.' });
+  }
+
+  const insertPostQuery =
+    'INSERT INTO board (title, author, content) VALUES (?, ?, ?)';
+  connection.query(insertPostQuery, [title, author, content], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res
+        .status(500)
+        .json({ message: '글 작성 중 오류가 발생했습니다.' });
+    }
+
+    res.status(201).json({ message: '글이 작성되었습니다.' });
   });
 });
 

@@ -23,6 +23,18 @@ router.get('/board', (req, res) => {
   res.sendFile(path.join(__dirname, '../html/board.html'));
 });
 
+router.get('/view', (req, res) => {
+  res.sendFile(path.join(__dirname, '../html/view.html'));
+});
+
+router.get('/write', (req, res) => {
+  res.sendFile(path.join(__dirname, '../html/write.html'));
+});
+
+router.get('/edit', (req, res) => {
+  res.sendFile(path.join(__dirname, '../html/edit.html'));
+});
+
 router.get('/css/:name', (req, res) => {
   res.sendFile(path.join(__dirname, '../css/', req.params.name));
 });
