@@ -16,41 +16,32 @@
       </div>
       <div class="board_write_wrap">
         <div class="board_write">
-          <div class="title">
-            <dl>
-              <dt>제목</dt>
-              <dd><input type="text" id="title" placeholder="제목 입력" /></dd>
-            </dl>
-          </div>
-          <div class="info">
-            <dl>
-              <dt>글쓴이</dt>
-              <dd id="author"></dd>
-            </dl>
-          </div>
-          <form class="cont">
-            <textarea
-              id="editor"
-              name="content"
-              placeholder="내용 입력"
-              rows="5"
-              cols="8"
-            ></textarea>
-            <script>
-              ClassicEditor.create(document.querySelector('#editor'))
-                .then((editor) => {
-                  console.log(editor);
-                })
-                .catch((error) => {
-                  console.error(error);
-                });
-            </script>
-          </form>
-        </div>
+          <form action="/quotes" method="POST">
+            <div class="title">
+              <dl>
+                <dt>제목</dt>
+                <dd>
+                  <input type="text" placeholder="title" name="title" />
+                </dd>
+              </dl>
+            </div>
 
-        <div class="bt_wrap">
-          <input type="submit" class="submitBtn" value="등록" />
-          <a href="/board">취소</a>
+            <div class="info">
+              <dl>
+                <dt>글쓴이</dt>
+                <dd id="author"></dd>
+              </dl>
+            </div>
+
+            <div class="cont">
+              <input type="text" placeholder="content" name="content" />
+            </div>
+
+            <div class="bt_wrap">
+              <input type="submit" class="submitBtn" value="등록" />
+              <a href="/board">취소</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>

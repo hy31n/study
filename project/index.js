@@ -91,49 +91,49 @@ app.get('/logout', (req, res) => {
   });
 });
 
-// 게시판 목록 불러오기
-app.get('/board', (req, res) => {
-  connection.query('SELECT * from board', (err, rows) => {
-    if (err) throw err;
-    console.log(rows);
-    res.send(rows);
-  });
-});
+// 게시글 작성
+app.post('/quotes', async (req, res) => {
+  try {
+    const { title, content } = req.body;
 
-//게시판 글 보기
-app.get('/view/:id', (req, res, next) => {
-  connection.query('SELECT * from board', (err, rows) => {
-    if (err) throw err;
-    const article = rows.find((art) => art.idx === parseInt(req.params.id));
-    if (!article) {
-      return res.status(404).send('ID was not found.');
+    // 데이터 유효성 검사
+    if (!title || !content) {
+      return res.status(400).json({ error: 'All fields are required.' });
     }
-    res.send(article);
-  });
-});
 
-// 게시판 글 작성
-app.post('/write', (req, res) => {
-  const { title, author, content } = req.body;
-
-  // 로그인 상태 확인
-  if (!req.session.user) {
-    return res.status(403).json({ message: '로그인이 필요합니다.' });
+    // SQL 코드
+    const insertQuoteQuery = 'INSERT INTO board (title, content) VALUES (?, ?)';
+    connection.query(insertQuoteQuery, [title, content], (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send('Error adding quote');
+        return;
+      }
+      // 성공
+      res.status(201).json({ message: 'Quote added successfully.' });
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
+});
 
-  const insertPostQuery =
-    'INSERT INTO board (title, author, content) VALUES (?, ?, ?)';
-  connection.query(insertPostQuery, [title, author, content], (err, result) => {
-    if (err) {
-      console.log(err);
-      return res
-        .status(500)
-        .json({ message: '글 작성 중 오류가 발생했습니다.' });
-    }
+// 게시판 리스트 보기
+app.use('/board', async function (req, res) {
+  let sql = 'select boardid, title, author, inserttime, viewcnt from board';
+  //동적 바인트 되는 preparedstatement 를 쓰려면 where TEST_ID=? 와 같이 사용하면 됨
+  let rows = await mariadbModule.select(sql, []);
+  //select함수에서는 sql 문자열, [param1,param2,....] 이런식으로 파라미터가 들어감
+  __LOGGER.info('select complete');
 
-    res.status(201).json({ message: '글이 작성되었습니다.' });
+  res.render('list', {
+    list: rows,
+    //ejs 에서는 list 라는 이름으로 호출 됨
   });
 });
+
+// 게시글 글 요소 확인
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

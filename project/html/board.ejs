@@ -24,17 +24,17 @@
           </div>
         </div>
 
-        <% for (const post of posts) { %>
+        <% quotes.forEach(quote => { %>
         <div>
-          <div class="num"><%= post.postid %></div>
+          <div class="num"><%= quote.boardid %></div>
           <div class="title">
-            <a href="/view/<%= post.postid %>"><%= post.title %></a>
+            <a href="/view/<%= quote.postid %>"><%= quote.title %></a>
           </div>
-          <div class="writer"><%= post.author %></div>
-          <div class="date"><%= post.date %></div>
-          <div class="count"><%= post.views %></div>
+          <div class="writer"><%= quote.author %></div>
+          <div class="date"><%= quote.inserttime %></div>
+          <div class="count"><%= quote.viewcnt %></div>
         </div>
-        <% } %>
+        <% }); %>
 
         <div class="board_page">
           <a href="#" class="bt first"><<</a>
