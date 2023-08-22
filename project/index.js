@@ -72,6 +72,7 @@ app.post('/login', (req, res) => {
     if (results.length > 0) {
       req.session.user = results[0];
 
+      res.setHeader('Set-Cookie', 'user=' + req.body.id);
       res.redirect('/');
     } else {
       res.redirect('/login');
@@ -121,9 +122,9 @@ app.post('/quotes', async (req, res) => {
 // 게시판 리스트 보기
 app.use('/board', async function (req, res) {
   let sql = 'select boardid, title, author, inserttime, viewcnt from board';
-  //동적 바인트 되는 preparedstatement 를 쓰려면 where TEST_ID=? 와 같이 사용하면 됨
+
   let rows = await mariadbModule.select(sql, []);
-  //select함수에서는 sql 문자열, [param1,param2,....] 이런식으로 파라미터가 들어감
+
   __LOGGER.info('select complete');
 
   res.render('list', {
