@@ -42,6 +42,14 @@ app.use(
 
 app.use('/', mainRoute);
 
+app.get('/test', (req, res) => {
+  const testData = {
+    message: 'EJS 렌더링 테스트',
+  };
+
+  res.render('test', testData);
+});
+
 // 회원가입
 app.post('/signup', (req, res) => {
   const { name, id, pw } = req.body;
@@ -120,16 +128,16 @@ app.post('/quotes', async (req, res) => {
 });
 
 // 게시판 리스트 보기
-app.use('/board', async function (req, res) {
-  let sql = 'select boardid, title, author, inserttime, viewcnt from board';
+app.get('/board', (req, res) => {
+  const sqlQuery = 'SELECT * FROM board';
 
-  let rows = await mariadbModule.select(sql, []);
+  connection.query(sqlQuery, (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('내부 서버 오류');
+    }
 
-  __LOGGER.info('select complete');
-
-  res.render('list', {
-    list: rows,
-    //ejs 에서는 list 라는 이름으로 호출 됨
+    res.render('board', { list: result });
   });
 });
 
