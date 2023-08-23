@@ -19,10 +19,6 @@ router.get('/signup', (req, res) => {
   res.sendFile(path.join(__dirname, '../html/signup.html'));
 });
 
-router.get('/view', (req, res) => {
-  res.sendFile(path.join(__dirname, '../html/view.html'));
-});
-
 router.get('/write', (req, res) => {
   res.sendFile(path.join(__dirname, '../html/write.html'));
 });

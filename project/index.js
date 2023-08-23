@@ -42,14 +42,6 @@ app.use(
 
 app.use('/', mainRoute);
 
-app.get('/test', (req, res) => {
-  const testData = {
-    message: 'EJS 렌더링 테스트',
-  };
-
-  res.render('test', testData);
-});
-
 // 회원가입
 app.post('/signup', (req, res) => {
   const { name, id, pw } = req.body;
@@ -107,7 +99,7 @@ app.post('/quotes', async (req, res) => {
 
     // 데이터 유효성 검사
     if (!title || !content) {
-      return res.status(400).json({ error: 'All fields are required.' });
+      return res.status(400).json({ error: '모든 필드 필수' });
     }
 
     // SQL 코드
@@ -115,15 +107,15 @@ app.post('/quotes', async (req, res) => {
     connection.query(insertQuoteQuery, [title, content], (err, result) => {
       if (err) {
         console.log(err);
-        res.status(500).send('Error adding quote');
+        res.status(500).send('글쓰기 오류');
         return;
       }
       // 성공
-      res.status(201).json({ message: 'Quote added successfully.' });
+      res.redirect('/board');
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: '내부 서버 오류' });
   }
 });
 
@@ -138,6 +130,21 @@ app.get('/board', (req, res) => {
     }
 
     res.render('board', { list: result });
+  });
+});
+
+// 게시판 글 보기
+app.get('/view/:boardid', (req, res) => {
+  const boardid = req.params.boardid;
+  const sqlQuery = 'SELECT * FROM board where 1=1 and boardid = ?';
+
+  connection.query(sqlQuery, [boardid], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('내부 서버 오류');
+    }
+
+    res.render('view', { board: result[0] });
   });
 });
 
