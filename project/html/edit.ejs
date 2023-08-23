@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="/css/board.css" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <title>IN.TRIP</title>
+  </head>
+  <body>
+    <div id="header_container"></div>
+
+    <div class="board_wrap">
+      <div class="board_title">
+        <strong>게시글 수정</strong>
+        <p>게시글의 내용을 수정하세요.</p>
+      </div>
+      <div class="board_write_wrap">
+        <div class="board_write">
+          <form action="/quotes" method="POST">
+            <div class="title">
+              <dl>
+                <dt>제목</dt>
+                <dd>
+                  <input type="text" placeholder="title" name="title" />
+                </dd>
+              </dl>
+            </div>
+
+            <div class="info">
+              <dl>
+                <dt>글쓴이</dt>
+                <dd id="author"></dd>
+              </dl>
+            </div>
+
+            <div class="cont">
+              <input type="text" placeholder="content" name="content" />
+            </div>
+
+            <div class="bt_wrap">
+              <input type="submit" class="submitBtn" value="수정" />
+              <a href="/board">취소</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('header_container').innerHTML =
+            this.responseText;
+        }
+      };
+      xhttp.open('GET', '/header', true);
+      xhttp.send();
+    </script>
+  </body>
+</html>

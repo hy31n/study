@@ -102,6 +102,11 @@ app.post('/quotes', async (req, res) => {
       return res.status(400).json({ error: '모든 필드 필수' });
     }
 
+    // 로그인 확인
+    if (!req.session.user) {
+      return res.status(401).json({ error: '로그인이 필요합니다' });
+    }
+
     // SQL 코드
     const insertQuoteQuery = 'INSERT INTO board (title, content) VALUES (?, ?)';
     connection.query(insertQuoteQuery, [title, content], (err, result) => {
@@ -145,6 +150,22 @@ app.get('/view/:boardid', (req, res) => {
     }
 
     res.render('view', { board: result[0] });
+  });
+});
+
+// 게시판 글 수정
+app.post('/edit/:boardid', (req, res) => {
+  const { title, content, boardid } = req.body;
+  const sqlQuery = 'UPDATE board SET title = ?, content = ? where boardid = ?';
+  const values = [title, content, boardid];
+
+  connection.query(sqlQuery, values, (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('내부 서버 오류');
+    }
+
+    res.send('성공');
   });
 });
 
